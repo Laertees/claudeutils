@@ -1,0 +1,32 @@
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Claude Code local state (per-machine, not portable)
+.claude/projects/
+.claude/statsig/
+.claude/todos/
+.claude/credentials.json
+
+# Editor
+.vscode/
+*.swp
+*.swo
+*~
+
+# Node (if used for MCP servers)
+node_modules/
+package-lock.json
+
+# Python (if used for MCP servers)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Secrets - never commit
+.env
+.env.local
+*.key
+*.pem
