@@ -36,9 +36,12 @@ function Sync-Config {
     Write-Host "  COPIED $FileName"
 }
 
+$Configs = @("settings.json", "keybindings.json")
+
 Write-Host "Syncing configs..."
-Sync-Config "settings.json"
-Sync-Config "keybindings.json"
+foreach ($config in $Configs) {
+    Sync-Config $config
+}
 
 Write-Host ""
 Write-Host "Done. Restart Claude Code to pick up changes."

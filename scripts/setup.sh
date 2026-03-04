@@ -44,10 +44,13 @@ sync_config() {
     echo "  COPIED $1"
 }
 
+CONFIGS=("settings.json" "keybindings.json")
+
 echo ""
 echo "Syncing configs..."
-sync_config "settings.json"
-sync_config "keybindings.json"
+for config in "${CONFIGS[@]}"; do
+    sync_config "$config"
+done
 
 echo ""
 echo "Done. Restart Claude Code to pick up changes."

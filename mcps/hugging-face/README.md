@@ -69,46 +69,11 @@ claude mcp add-json hf-mcp-server '{
 }'
 ```
 
-## Configuration in settings files
+## Configuration files
 
-### Remote HTTP (Options A/B)
-
-Goes in `~/.claude.json` (auto-created by `claude mcp add`):
-
-```json
-{
-  "mcpServers": {
-    "hf-mcp-server": {
-      "type": "http",
-      "url": "https://huggingface.co/mcp",
-      "headers": {
-        "Authorization": "Bearer ${HF_TOKEN}"
-      }
-    }
-  }
-}
-```
-
-### STDIO (Option C)
-
-```json
-{
-  "mcpServers": {
-    "hf-mcp-server": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@llmindset/hf-mcp-server"],
-      "env": {
-        "HF_TOKEN": "${HF_TOKEN}"
-      }
-    }
-  }
-}
-```
-
-### Project-level `.mcp.json`
-
-To share with a team (token via env var, not hardcoded):
+The `claude mcp add` commands above write to `~/.claude.json` automatically.
+To share config with a team, add a `.mcp.json` in the project root instead
+(use `${HF_TOKEN}` env var expansion so tokens stay out of git):
 
 ```json
 {
